@@ -186,16 +186,25 @@
 
   /* Blog */
   .blog{background:var(--ivory-soft);border-top:1px solid var(--line)}
-  .blog-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
-  .blog-fallback{grid-column:1/-1;background:var(--ivory);border:1px dashed #d8cfb8;border-radius:14px;padding:36px;text-align:center;color:var(--gray);font-size:.98rem}
-  .post-card{display:flex;flex-direction:column;background:var(--ivory);border:1px solid var(--line);border-radius:14px;padding:24px 26px;transition:transform .25s,box-shadow .25s,border-color .25s}
-  .post-card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(16,42,71,.1);border-color:#d8cfb8}
+  .blog-feature{display:grid;grid-template-columns:1.25fr .75fr;margin-top:42px;border-radius:18px;overflow:hidden;background:linear-gradient(135deg,var(--navy-deep),var(--navy) 60%,#143a63);border:1px solid rgba(193,154,75,.3)}
+  .bf-text{padding:46px 48px;color:var(--ivory);align-self:center}
+  .bf-eyebrow{display:inline-block;font-size:.74rem;letter-spacing:.14em;font-weight:700;color:var(--navy-deep);background:var(--accent);border-radius:999px;padding:4px 13px;margin-bottom:16px}
+  .bf-text h3{font-family:var(--serif);font-size:1.8rem;font-weight:800;line-height:1.32;margin-bottom:12px;color:#fff}
+  .bf-text p{color:#cdd9e8;font-size:1rem;margin-bottom:22px;max-width:440px}
+  .bf-text .btn{background:var(--accent);border-color:var(--accent);color:#fff}
+  .bf-text .btn:hover{background:#ad8838;border-color:#ad8838}
+  .bf-photo{position:relative;min-height:250px}
+  .bf-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;filter:grayscale(1) contrast(1.03)}
+  .bf-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,28,48,.6),transparent 45%)}
+  .blog-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+  .topic-card,.post-card{display:flex;flex-direction:column;background:var(--ivory);border:1px solid var(--line);border-radius:14px;padding:24px 26px;transition:transform .25s,box-shadow .25s,border-color .25s}
+  .topic-card:hover,.post-card:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(16,42,71,.1);border-color:#d8cfb8}
+  .topic-card .tc-ico{font-size:1.7rem;margin-bottom:10px}
+  .topic-card h4,.post-card h4{font-size:1.06rem;color:var(--navy);font-weight:800;margin-bottom:8px;line-height:1.45}
+  .topic-card p,.post-card p{font-size:.9rem;color:var(--gray);line-height:1.7;flex:1}
+  .topic-card .tc-go{margin-top:14px;font-size:.85rem;font-weight:700;color:var(--accent)}
   .post-card .post-date{font-size:.8rem;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:.02em}
-  .post-card h4{font-size:1.06rem;color:var(--navy);font-weight:800;margin-bottom:8px;line-height:1.45}
-  .post-card p{font-size:.9rem;color:var(--gray);line-height:1.7}
-  .blog-cta-wrap{margin-top:30px}
-  .blog-cta-wrap .btn{background:var(--navy);border-color:var(--navy);color:var(--ivory)}
-  .blog-cta-wrap .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .blog-fallback{grid-column:1/-1;background:var(--ivory);border:1px dashed #d8cfb8;border-radius:14px;padding:36px;text-align:center;color:var(--gray);font-size:.98rem}
 
   /* Track record */
   .track{background:var(--ivory);border-top:1px solid var(--line)}
@@ -289,6 +298,9 @@
     .hero-portrait:before{display:none}
     .story,.flow,.cards,.aud-grid,.vstats,.quotes,.lineup-grid,.pflow,.blog-posts{grid-template-columns:1fr;gap:18px}
     .pstep .arrow{display:none}
+    .blog-feature{grid-template-columns:1fr}
+    .bf-text{padding:34px 28px}
+    .bf-photo{min-height:220px;order:-1}
     .flow-step .arrow{display:none}
     section{padding:64px 0}.hero{padding:84px 0 0}.hero .inner{padding-bottom:64px}
     .contact-grid{grid-template-columns:1fr;gap:34px}
@@ -614,12 +626,20 @@
   <div class="wrap">
     <span class="eyebrow reveal">Insights</span>
     <h2 class="section-title reveal">블로그 · 인사이트</h2>
-    <p class="section-lead reveal">교육 현장의 인사이트와 AI·HRD 이야기를 블로그에 기록합니다. 강예원 대표의 생각을 더 깊이 만나보세요.</p>
-    <div class="blog-posts reveal" id="blogPosts" aria-live="polite">
-      <div class="blog-fallback">최신 글을 <strong>yewon.biz</strong> 블로그에서 만나보세요.</div>
+    <p class="section-lead reveal">교육 현장의 인사이트와 AI·HRD 이야기를 블로그에 기록합니다.</p>
+    <div class="blog-feature reveal">
+      <div class="bf-text">
+        <span class="bf-eyebrow">yewon.biz</span>
+        <h3>강예원 대표의 생각을<br>더 깊이 만나보세요</h3>
+        <p>AI와 일하는 방식, 디자인씽킹, 교육 현장의 이야기까지 — 블로그에서 꾸준히 기록하고 나눕니다.</p>
+        <a href="https://yewon.biz" target="_blank" rel="noopener" class="btn">블로그 방문하기 →</a>
+      </div>
+      <div class="bf-photo"><img src="assets/kang-editorial.jpg" alt="강예원 대표"></div>
     </div>
-    <div class="blog-cta-wrap reveal">
-      <a href="https://yewon.biz" target="_blank" rel="noopener" class="btn">yewon.biz 블로그 방문하기 →</a>
+    <div class="blog-posts reveal" id="blogPosts" aria-live="polite">
+      <a class="topic-card" href="https://yewon.biz" target="_blank" rel="noopener"><span class="tc-ico">🤖</span><h4>AI · 일하는 방식</h4><p>AI와 협업해 일을 다시 설계하는 법</p><span class="tc-go">블로그에서 보기 →</span></a>
+      <a class="topic-card" href="https://yewon.biz" target="_blank" rel="noopener"><span class="tc-ico">💡</span><h4>교육 인사이트</h4><p>디자인씽킹·문제해결 현장 노트</p><span class="tc-go">블로그에서 보기 →</span></a>
+      <a class="topic-card" href="https://yewon.biz" target="_blank" rel="noopener"><span class="tc-ico">🌱</span><h4>같이의 가치</h4><p>성장과 나눔에 대한 이야기</p><span class="tc-go">블로그에서 보기 →</span></a>
     </div>
   </div>
 </section>
@@ -674,12 +694,12 @@
           <div><b>주소</b><span>서울특별시 양천구 목동로 19길 11</span></div>
         </div>
       </div>
-      <form onsubmit="handleSubmit(event)" class="reveal">
+      <form id="contactForm" onsubmit="handleSubmit(event)" class="reveal">
         <h3>강의 제안서 요청</h3>
-        <div class="field"><label>이름 / 소속</label><input type="text" required placeholder="홍길동 / OO기업·기관"></div>
-        <div class="field"><label>이메일</label><input type="email" required placeholder="name@example.com"></div>
+        <div class="field"><label>이름 / 소속</label><input name="이름·소속" type="text" required placeholder="홍길동 / OO기업·기관"></div>
+        <div class="field"><label>이메일</label><input name="이메일" type="email" required placeholder="name@example.com"></div>
         <div class="field"><label>관심 분야</label>
-          <select>
+          <select name="관심분야">
             <option>문제해결 · 디자인씽킹</option>
             <option>리더십 · 조직문화</option>
             <option>AI 활용 · 콘텐츠</option>
@@ -687,10 +707,10 @@
             <option>기타 문의</option>
           </select>
         </div>
-        <div class="field"><label>교육 대상 · 일정 (선택)</label><input type="text" placeholder="예: 신입 30명 / 9월 중 4시간"></div>
-        <div class="field"><label>문의 내용</label><textarea required placeholder="필요하신 교육·코칭·콘텐츠 내용을 알려주세요."></textarea></div>
+        <div class="field"><label>교육 대상 · 일정 (선택)</label><input name="교육대상·일정" type="text" placeholder="예: 신입 30명 / 9월 중 4시간"></div>
+        <div class="field"><label>문의 내용</label><textarea name="문의내용" required placeholder="필요하신 교육·코칭·콘텐츠 내용을 알려주세요."></textarea></div>
         <button type="submit" class="btn">제안서 요청 보내기</button>
-        <p class="form-note">제출 시 개인정보는 상담 목적으로만 이용됩니다.</p>
+        <p class="form-note">제출 시 개인정보는 상담 목적으로만 이용됩니다. · 직접 메일: jsharevalue@gmail.com</p>
       </form>
     </div>
   </div>
@@ -716,8 +736,26 @@
 <script>
   function handleSubmit(e){
     e.preventDefault();
-    alert('제안서 요청이 접수되었습니다. 영업일 1일 이내에 연락드리겠습니다. 감사합니다!');
-    e.target.reset();
+    var form=e.target;
+    var btn=form.querySelector('button[type=submit]');
+    var label=btn.textContent;
+    btn.disabled=true; btn.textContent='보내는 중…';
+    var data=new FormData(form);
+    data.append('_subject','[제이스 같이의가치] 강의 제안서 요청');
+    data.append('_captcha','false');
+    data.append('_template','table');
+    fetch('https://formsubmit.co/ajax/jsharevalue@gmail.com',{
+      method:'POST', headers:{'Accept':'application/json'}, body:data
+    })
+    .then(function(r){return r.json();})
+    .then(function(){
+      alert('문의가 접수되었습니다. 영업일 1일 이내에 연락드리겠습니다. 감사합니다!');
+      form.reset();
+    })
+    .catch(function(){
+      alert('전송 중 문제가 발생했어요. jsharevalue@gmail.com 으로 직접 보내주시면 빠르게 답변드리겠습니다.');
+    })
+    .finally(function(){ btn.disabled=false; btn.textContent=label; });
   }
   document.querySelectorAll('#menu a').forEach(function(a){
     a.addEventListener('click',function(){document.getElementById('menu').classList.remove('open');});
@@ -749,7 +787,7 @@
   // invite card if no feed is reachable. No fabricated content is shown.
   (function(){
     var box=document.getElementById('blogPosts'); if(!box) return;
-    var FEEDS=['https://yewon.biz/rss','https://yewon.biz/feed','https://yewon.biz/rss.xml','https://yewon.biz/atom.xml','https://yewon.biz/feed.xml'];
+    var FEEDS=['https://rss.blog.naver.com/yiyuan.xml'];
     function esc(s){return (s||'').replace(/<[^>]+>/g,'').replace(/&[^;]+;/g,' ').trim();}
     function render(items){
       box.innerHTML='';
